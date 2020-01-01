@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
+  <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/ui-lib/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ui/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ui/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/ui/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/game/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/game/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/game/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/game/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/ui-lib/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ui-lib/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/ui-lib/benches" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/game/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/ui-lib/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

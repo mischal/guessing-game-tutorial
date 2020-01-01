@@ -1,6 +1,14 @@
 use std::io;
 use rand::Rng;
 use std::cmp::Ordering;
+use ui_lib::ui;
+
+
+fn main() {
+    let mut guess_game = GuessGame::new_game(1, 20);
+    guess_game.start();
+}
+
 
 // global const
 const DEFAULT_MAX_VAL: u32 = 20;
@@ -23,15 +31,11 @@ struct GuessGame {
 impl GuessGame {
 
     fn print_intro() {
-        println!("=====================");
-        println!("= Guess the number! =");
-        println!("=====================");
+        ui::out::title("Guess the number!");
     }
 
     fn print_help() {
-        println!("==========================");
-        println!("= Guess the number! Help =");
-        println!("==========================");
+        ui::out::title("Guess the number! Help");
         println!();
         println!("h - print the help");
         println!("q - quit the game");
@@ -165,11 +169,6 @@ impl GuessGame {
         }
     }
 
-}
-
-fn main() {
-    let mut guess_game = GuessGame::new_game(1, 20);
-    guess_game.start();
 }
 
 
