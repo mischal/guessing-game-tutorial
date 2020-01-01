@@ -2,12 +2,16 @@ use std::io;
 use rand::Rng;
 use std::cmp::Ordering;
 use ui_lib::ui;
+use ui_lib::ui::InputOption;
 
 
 fn main() {
+
+
     let mut guess_game = GuessGame::new_game(1, 20);
     guess_game.start();
 }
+
 
 
 // global const
@@ -25,22 +29,22 @@ struct GuessGame {
     from: u32,
     to: u32,
     secret_number: u32,
-    runs: u32
+    runs: u32,
+    input_options: Vec<InputOption>
 }
 
 impl GuessGame {
+
+
+
 
     fn print_intro() {
         ui::out::title("Guess the number!");
     }
 
-    fn print_help() {
+    fn print_help(&self) {
         ui::out::title("Guess the number! Help");
-        println!();
-        println!("h - print the help");
-        println!("q - quit the game");
-        println!("i - show current game info");
-        println!("c - config the game");
+        ui::out::show_input_options(&self.input_options);
     }
 
     fn new_game(from: u32, to: u32) -> GuessGame {
@@ -48,7 +52,13 @@ impl GuessGame {
             from,
             to,
             secret_number: 0,
-            runs: 0
+            runs: 0,
+            input_options: vec![
+                ui::InputOption::new('h', String::from("print the help")),
+                ui::InputOption::new('q', String::from("quit the game")),
+                ui::InputOption::new('i', String::from("show current game info")),
+                ui::InputOption::new('c', String::from("config the game"))
+            ]
         };
 
         guess_game.init_game();
@@ -84,19 +94,14 @@ impl GuessGame {
 
     fn start(&mut self) {
         GuessGame::print_intro();
-        GuessGame::print_help();
+        self.print_help();
         println!("starting game. please guess between {} and {}", self.from, self.to);
         self.start_loop();
     }
 
     fn ask_for_input(&self)  -> UserInput {
 
-        println!("Please input your guess!");
-        let mut guess = String::new();
-
-        io::stdin().read_line(&mut guess).expect("err");
-
-        let guess = guess.trim();
+        let guess = ui::input::read_line("Please input your guess!");
 
         if guess == "q" {
             UserInput::Quit
@@ -148,7 +153,7 @@ impl GuessGame {
                 }
 
                 UserInput::Help => {
-                    GuessGame::print_help();
+                    self.print_help();
                     continue;
                 }
 

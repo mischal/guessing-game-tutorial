@@ -6,28 +6,7 @@ mod tests {
     }
 }
 
-pub mod ui {
-
-    pub mod out {
-
-        pub fn line(str: &str) {
-            println!("{}", str);
-        }
-
-        pub fn title(str: &str) {
-            repeat('=', str.len() + 4);
-            println!("= {} =", str);
-            repeat('=',str.len() + 4);
-        }
-
-        fn repeat(char: char, len: usize) {
-            println!("{}", std::iter::repeat(char).take(len).collect::<String>());
-        }
-
-    }
-
-
-}
+pub mod ui;
 
 pub fn testlib()  {
     println!("testing lib call");
